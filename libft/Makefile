@@ -48,9 +48,8 @@ SRCS		= ft_memset.c \
               ft_putchar_fd.c \
               ft_putstr_fd.c \
               ft_putendl_fd.c \
-              ft_putnbr_fd.c 
-              
-BNS_SRCS	= ft_lstnew.c \
+              ft_putnbr_fd.c \
+			  ft_lstnew.c \
               ft_lstadd_front.c \
               ft_lstsize.c \
               ft_lstlast.c \
@@ -62,31 +61,27 @@ BNS_SRCS	= ft_lstnew.c \
                 
 OBJS		= $(SRCS:%.c=%.o)
 
-BNS_OBJS	= $(BNS_SRCS:%.c=%.o)
-
 CFLAGS		= -Wall -Werror -Wextra
 
 CC          = gcc
 
-#Commands
+.SILENT: $(OBJS)
 
+#Commands
 $(NAME): $(OBJS)
+	@echo "$(YELLOW)compiling libft... ...$(DEF_COLOR)" 
 	@$(CC) $(CFLAGS) -c $(SRCS)
 	@ar rcs $(NAME) $(OBJS)
+	@echo "$(BLUE)libft compiled!$(DEF_COLOR)"
 
-all: $(NAME) bonus
-	@echo "$(GREEN)libft compiled!$(DEF_COLOR)"
-
-bonus: $(NAME) $(BNS_OBJS)
-	@$(CC) $(CFLAGS) -c $(BNS_SRCS)
-	@ar rcs $(NAME) $(BNS_OBJS)
+all: $(NAME)
 
 clean:
-	@rm -f $(OBJS) $(BNS_OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: maaliber <maaliber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:45:05 by maaliber          #+#    #+#             */
-/*   Updated: 2022/12/19 12:27:08 by maaliber         ###   ########.fr       */
+/*   Updated: 2023/01/03 11:19:25 by maaliber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 # include <stdint.h>
 # include "libft/libft.h"
 
-#define BRED	"\033[1m\033[31m"      /* Bold Red */
-#define BWHITE	"\033[1m\033[37m"      /* Bold White */
-#define RESET	"\033[0m"
+# define BRED	"\033[1m\033[31m"      /* Bold Red */
+# define BWHITE	"\033[1m\033[37m"      /* Bold White */
+# define RESET	"\033[0m"
 
 typedef struct s_param
 {
@@ -32,8 +32,8 @@ typedef struct s_param
 	unsigned int	left;
 	unsigned int	showsign;
 	unsigned int	padded;
-	int	width;
-	int	prec;
+	int				width;
+	int				prec;
 }	t_param;
 
 typedef struct s_arg_spec
@@ -55,9 +55,6 @@ typedef struct s_output
 	ssize_t	size;
 }	t_output;
 
-#define MAX(x, y) (((x) > (y)) ? (x) : (y))
-#define MIN(x, y) (((x) < (y)) ? (x) : (y))
-
 /*Function for list - used in Parsing functions*/
 void		del_arg(t_arg_spec *spec);
 t_lst_arg	*ft_lstnew_arg(t_arg_spec *spec);
@@ -69,8 +66,8 @@ void		ft_lstclear_arg(t_lst_arg **lst);
 /*Utilised functions - Used functions*/
 char		*ft_strjoin_free(char *s1, char *s2);
 void		*ft_setalloc(size_t size, char c, int null_terminated);
-char		*ft_strinsert(char const *s, char const *to_insert, size_t pos);
-char		*ft_strinsert_free(char const *s, char const *to_insert, size_t pos);
+char		*ft_strinsert(char const *s, char const *to_ins, size_t pos);
+char		*ft_strinsert_free(char const *s, char const *to_ins, size_t pos);
 
 /*Parsing functions - used in Main functions*/
 int			atoi_printf(const char *nstr, t_arg_spec *spec);

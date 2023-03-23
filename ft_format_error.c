@@ -6,7 +6,7 @@
 /*   By: maaliber <maaliber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:50:49 by maaliber          #+#    #+#             */
-/*   Updated: 2022/12/12 19:05:34 by maaliber         ###   ########.fr       */
+/*   Updated: 2023/01/03 11:08:09 by maaliber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	flag_comp_err(t_arg_spec *spec)
 {
 	if (spec->param->alt && !ft_ischarset(spec->type, "xX"))
 		return (err_msg("'#' flag used with", spec->type), 1);
-	else if (spec->param->space && !ft_ischarset(spec->type, "di"))
+	else if (spec->param->space && !ft_ischarset(spec->type, "sdi"))
 		return (err_msg("' ' flag used with", spec->type), 1);
 	else if (spec->param->showsign && !ft_ischarset(spec->type, "di"))
 		return (err_msg("'+' flag used with", spec->type), 1);

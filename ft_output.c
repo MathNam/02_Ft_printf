@@ -6,7 +6,7 @@
 /*   By: maaliber <maaliber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:53:52 by maaliber          #+#    #+#             */
-/*   Updated: 2022/12/12 16:07:11 by maaliber         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:22:02 by maaliber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ ssize_t	write_arg(va_list ap, t_arg_spec *spec)
 	ssize_t		wbytes;
 
 	output = init_output();
+	if (!output)
+		return (-1);
 	idx = ft_index(sup_types, spec->type);
 	if (idx < 0)
 		return (-1);

@@ -37,9 +37,10 @@ SRCS		= printf_util.c \
 			  ft_printf.c
 
 #Commands
+.SILENT: $(OBJS)
 
 $(NAME): $(OBJS)
-	@make all -C $(LIBFT)
+	@make --no-print-directory all -C $(LIBFT)
 	@cp $(LIBFT)/libft.a .
 	@mv libft.a $(NAME)	
 	@$(CC) $(CFLAGS) -c $(SRCS)
@@ -58,7 +59,7 @@ bonus: all
 
 clean:
 	@rm -f $(OBJS) $(BNS_OBJS) main.o
-	@make clean -C $(LIBFT)
+	@make --no-print-directory clean -C $(LIBFT)
 
 fclean: clean
 	@rm -f $(NAME) $(EXE)
